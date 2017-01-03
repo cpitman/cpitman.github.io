@@ -19,7 +19,7 @@ toolbox:
 1. The OpenShift/Kubernetes API: Here is where we can get data about the
 currently running pods and created resources, as well as watch for events.
 2. Metrics/Hawkular: This is the system used internally to capture metrics from running
-containers. Dependening on the version of OpenShift, this captures per container
+containers. Depending on the version of OpenShift, this captures per container
 CPU, memory, and network utilization. Hawkular has a full REST API (as used by
 the OpenShift Web UI), so this data can be polled as part of a monitoring
 solution.
@@ -27,7 +27,7 @@ solution.
 into ElasticSearch, usually utilized when using Kibana to perform ad-hoc
 analysis of logs. But we can also submit our own queries to ElasticSearch as
 part of a monitoring solution, or deploy a custom external Fluentd aggregator to
-forward log data to our moniotring solution.
+forward log data to our monitoring solution.
 4. HAProxy: The default routing solution for OpenShift is HAProxy, meaning that
 all external communication into OpenShift is reverse-proxied by HAProxy. HAProxy
 provides a status endpoint that can be used to see which backends are returning
@@ -39,20 +39,20 @@ etcd, routers, and ElasticSearch.
 6. Diagnostics: The `oc` command line tool includes a diagnostic function that
 can be executed with `oc adm diagnostics`, and can be run per node to check node
 health and configuration. The tool spits out a fair bit of false positives, so
-filtering is neccessary.
+filtering is necessary.
 
 Monitoring Goals
 ----------------
 
 Given those tools, what is it we want to achieve as a _service provider_ in our
-monitoring solution? I blieve there are three main questions we want to answer:
+monitoring solution? I believe there are three main questions we want to answer:
 
 1. Is the platform currently operational? Is there any reason a currently
 deployed application would fail because of the platform instead of an internal
 error or an incorrect deployment?
 2. Is the platform in danger of not being operational in the near future? These
 would be conditions that do not affect the current operations of OpenShift but
-do leave it in a vulernable state if additional failures happen.
+do leave it in a vulnerable state if additional failures happen.
 3. Does the platform have capacity for current and forecasted demand?
 
 ### Is the platform currently operational? (or Oh My... Fix It!) ###
@@ -66,7 +66,7 @@ that requires _immediate attention_. For this we can mainly rely on our healthch
   Masters have a `/healthz` endpoint which will respond with a 200 status
 code of the master is healthy. The body says "OK", as if the 200 status code
 hadn't accomplished that already! Assuming this is an HA setup, use your load 
-balanced public URL to ensure the public API is accessable (ie something like
+balanced public URL to ensure the public API is accessible (ie something like
 `https://master.paas.example.com:8443/healthz`).
 
   If this check ever fails, it means that none of the masters are healthy or
@@ -78,7 +78,7 @@ want to let persist for too long.
 
 * Is the etcd cluster healthy?
 
-  Etcd is the critical piece of infrastructure backing any HA dpeloyment of
+  Etcd is the critical piece of infrastructure backing any HA deployment of
 OpenShift, and is one of the only components that actually has to deal with
 clustering. Etcd is a quorum based CP data store. Most deployments will use
 three etcd instances, meaning that the etcd cluster is healthy as long as two
@@ -201,7 +201,7 @@ the ability to build or push new images.
 
   Each node has a local docker daemon, and if following best practices it was
 setup with a LVM logical volume for docker storage. Any time a container is
-deployed the corresponding image is saved into docker storage and everytime a
+deployed the corresponding image is saved into docker storage and every time a
 container is started the container filesystem is in this storage. With lots of 
 deployments this storage can quickly be filled.
 
@@ -267,9 +267,9 @@ GiB of memory but use none of it. As a Service Provider, you need to monitor
 resources you have _allocated_ to clients, not the _current_ utilization of
 nodes.
 
-  Exactly what needs to be monitored depends on how node's have been partioned.
+  Exactly what needs to be monitored depends on how node's have been partitioned.
 For example, if nodes are set aside for "production", "staging", and
-"development", then allocations need to be monitored for all three seperately.
+"development", then allocations need to be monitored for all three separately.
 This is easier if projects are aligned with nodes, ie if there are "development"
 nodes then there is a "development" project for deploying to those nodes, 
 enforced via a project level node selector.
@@ -285,7 +285,7 @@ expected new deployments, scale out, etc in the near future.
 --all-namespaces`, but by default this doesn't print the current quota values.
 The following command adds a template to print out the assigned quota for each
 project as well as how much of the quota is currently in use. Sum the first two
-columns for a conservative capacity target and the last two colums for the
+columns for a conservative capacity target and the last two columns for the
 currently allocated capacity.
 
 {% raw %}
