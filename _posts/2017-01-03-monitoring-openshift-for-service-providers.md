@@ -163,7 +163,7 @@ to downtime before downtime actually happens. Alerts should only be generated
 after multiple failed checks, and depending on SLAs can wait to be acted upon
 until normal business hours.
 
-* Degraged Healthchecks
+* Degraded Healthchecks
 
   For these alerts, repeat the the same healthchecks for masters, etcd, and
 routers. Instead of checking for overall health though, fail the check if any
@@ -173,7 +173,7 @@ routers. For etcd, fail the check if `etcdctl` does not report any of the three
 cluster members as healthy (a healthy result here looks like `member
 fd422379fda50e48 is healthy: got healthy result from http://127.0.0.1:32379`).
 
-  To keep restarts an other ephemeral failures from causing lots of alert noise,
+  To keep restarts and other ephemeral failures from causing lots of alert noise,
 ensure that these alerts only get sent after a period of failure. For example,
 only alert if a master has been down for at least ten minutes. Also consider
 whether or not these alerts can wait for action based on expected recovery time,
@@ -183,7 +183,7 @@ exposure to risk of an additional failure causing downtime, and SLAs.
 
   OpenShift builds images on request or when triggered by changes to application
 source code. The images are then stored inside OpenShift's internal registry,
-which uses persistent storage setup as part of the installation process. Docker
+which uses persistent storage that is setup as part of the installation process. Docker
 images are massive, and can quickly add up through repeated builds. Monitor the
 space available in the persistent volume and alert when it is low.
 
@@ -191,7 +191,7 @@ space available in the persistent volume and alert when it is low.
 (usually with cron) to execute `oc adm prune images
 ...`](https://docs.openshift.com/container-platform/3.3/admin_guide/pruning_resources.html#pruning-images).
 If still low on space after pruning, then either adjust the prune to be more
-aggressive (ie keeping less versions of each image or for less time)` or
+aggressive (ie keeping less versions of each image or for less time) or
 allocate more storage to the registry.
 
   Running out of registry storage will not affect any currently running pods, only
@@ -256,7 +256,7 @@ be added or the application stopped or modified.
   Most service providers will want to control resource utilization by their
 clients by setting quotas for resource utilization. For example, a project might
 be limited to using 4 CPU cores and 10 GiB of memory. When using quotas, each
-container must also have resources requests and/or limits configured, either via
+container must also have resource requests and/or limits configured, either via
 explicit requests/limits in the pod specification or via default project limits.
 
   This is where things get tricky: when the Openshift scheduler places a pod it
