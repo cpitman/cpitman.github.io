@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Self Service Router Metrics for OpenShift"
-date:   2017-01-26
+date:   2017-03-09
 categories: openshift monitoring
 ---
 
