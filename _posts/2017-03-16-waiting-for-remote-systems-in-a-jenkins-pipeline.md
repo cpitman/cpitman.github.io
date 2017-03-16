@@ -1,7 +1,7 @@
 ---
 published: true
 title: Waiting for Remote Systems in a Jenkins Pipeline
-tags: jenkins cicd
+categories: jenkins cicd
 ---
 When putting together a CICD pipeline, I often want to add stages that depend on a remote system executing a task that could potentially take a long time to complete. Or I want to integrate with a web based system that gives a callback when a task is complete (welcome to the future). 
 
