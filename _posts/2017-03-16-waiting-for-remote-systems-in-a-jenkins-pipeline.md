@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Waiting for Remote Systems in a Jenkins Pipeline
 tags: jenkins cicd
 ---
