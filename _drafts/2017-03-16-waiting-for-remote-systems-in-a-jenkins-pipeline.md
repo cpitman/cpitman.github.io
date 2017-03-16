@@ -3,7 +3,14 @@ published: false
 title: Waiting for Remote Systems in a Jenkins Pipeline
 tags: jenkins cicd
 ---
-When putting together a CICD pipeline, I often want to add stages that depend on an external system executing a task that could potentially take a long time to complete. Or I want to integrate with a web based system that gives a callback when a task is complete (welcome to the future). 
+When putting together a CICD pipeline, I often want to add stages that depend on a remote system executing a task that could potentially take a long time to complete. Or I want to integrate with a web based system that gives a callback when a task is complete (welcome to the future). 
+
+The remote system could be doing lots of things:
+
+1. Triggering and waiting for test results
+2. Requesting a Code Review in a Code Review Tool and waiting for approval/rejection
+3. Triggering a business process for change control and waiting for the result
+4. Posting to a chat system and waiting for someone to type a command to continue
 
 For example, one of the larger and more business critical systems I worked on had a set of integration tests that had a specialized scheduler that would execute tests across a cluster, and take ~8 hours to complete a full run. How can we integrate these long running tests into a Jenkins pipeline? 
 
@@ -68,6 +75,8 @@ curl -X POST --form "$CRUMB" --user username:password \
   http://jenkins-url/job/async-demo/1/input/Async-input/submit
 ```
 
+The `@` symbol is important! It tells curl that what follows is a filename so that it will read and post the data from the file.
+
 Another Solution?
 -----------------
 
@@ -75,7 +84,8 @@ Using the input plugin has a couple warts that make it more difficult to work wi
 
 1. It requires authorization by the remote system using user credentials
 2. It requires the remote system to get and use a CSRF token
-3. Especially when posting data, the format of the data has to be based on Jenkins
+3. Especially when posting data, the format of the request has to be the very specific format supported by the Jenkins `input` step
+4. There is a small window for timing issues, where the remote system could finish and respond _really_ fast, before Jenkins gets to the `input` step
 
 All three of these mean that we have to adjust the remote system to work with Jenkins, and cannot just use a standard webhook feature. Ideally, another plugin would be written that generates unique callback urls for each execution, getting rid of the need for CSRF and authorization. It would also accept any data, and let the pipeline script figure out what to do with it.
 
@@ -93,5 +103,5 @@ stage("Wait for Remote System") {
 }
 ```
 
-Testing this with curl we would execute `curl -X POST $callback_url`. Since we don't have to muck with authorization or CSRF, thats all that is required. Any system that supports callbacks would then be easy to integrate with!
+Testing this with curl we would execute `curl -X POST $callback_url`. Since we don't have to muck with authorization or CSRF, that's all that would be required. Any system that supports callbacks would then be easy to integrate with!
 
