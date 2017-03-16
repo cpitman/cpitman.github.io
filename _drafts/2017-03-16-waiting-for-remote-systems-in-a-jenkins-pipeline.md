@@ -26,6 +26,8 @@ Our pipeline needs to do the following:
 1. Call our external system, passing a callback url
 3. Call the `input` step and wait for the external system to trigger it
 
+![Process Diagram]({{site.baseurl}}/images/pipeline_wait_for_webhook.png)
+
 To do this, add something like the following to your Jenkinsfile:
 
 ```
@@ -104,4 +106,3 @@ stage("Wait for Remote System") {
 ```
 
 Testing this with curl we would execute `curl -X POST $callback_url`. Since we don't have to muck with authorization or CSRF, that's all that would be required. Any system that supports callbacks would then be easy to integrate with!
-
