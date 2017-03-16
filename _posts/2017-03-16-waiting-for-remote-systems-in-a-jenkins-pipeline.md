@@ -89,7 +89,7 @@ Using the input plugin has a couple warts that make it more difficult to work wi
 3. Especially when posting data, the format of the request has to be the very specific format supported by the Jenkins `input` step
 4. There is a small window for timing issues, where the remote system could finish and respond _really_ fast, before Jenkins gets to the `input` step
 
-All three of these mean that we have to adjust the remote system to work with Jenkins, and cannot just use a standard webhook feature. Ideally, another plugin would be written that generates unique callback urls for each execution, getting rid of the need for CSRF and authorization. It would also accept any data, and let the pipeline script figure out what to do with it.
+All of these mean that we have to adjust the remote system to work with Jenkins, and cannot just use a standard webhook feature. Ideally, another plugin would be written that generates unique callback urls for each execution, getting rid of the need for CSRF and authorization. It would also accept any data, and let the pipeline script figure out what to do with it.
 
 Such a plugin would let us rewrite the pipeline like this:
 
