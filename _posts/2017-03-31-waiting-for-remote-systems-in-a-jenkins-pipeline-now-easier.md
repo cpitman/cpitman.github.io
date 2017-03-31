@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title: 'Waiting for Remote system in a Jenkins Pipeline, Now Easier'
+title: 'Waiting for Remote Systems in a Jenkins Pipeline, Now Easier'
 date: 2017-03-31T00:00:00.000Z
 categories: jenkins cicd
 ---
