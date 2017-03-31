@@ -2,7 +2,7 @@
 published: true
 layout: post
 title: 'Waiting for Remote system in a Jenkins Pipeline, Now Easier'
-date: {}
+date: 2017-03-31T00:00:00.000Z
 categories: jenkins cicd
 ---
 TLDR: I've release a new Jenkins plugin for integrating external systems into pipelines, the [Webhook Step Plugin](https://plugins.jenkins.io/webhook-step)!
