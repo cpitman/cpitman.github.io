@@ -106,3 +106,5 @@ stage("Wait for Remote System") {
 ```
 
 Testing this with curl we would execute `curl -X POST $callback_url`. Since we don't have to muck with authorization or CSRF, that's all that would be required. Any system that supports callbacks would then be easy to integrate with!
+
+**Update:** I've released a Jenkins Plugin that works like this, see [this update post](/jenkins/cicd/2017/03/31/waiting-for-remote-systems-in-a-jenkins-pipeline-now-easier.html) for details!
