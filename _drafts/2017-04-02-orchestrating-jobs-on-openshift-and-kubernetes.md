@@ -1,5 +1,7 @@
 ---
 published: false
+layout: post
+categories: openshift jenkins
 ---
 Openshift and Kubernetes have had support for `Job`s for several versions now. A job is a pod that is expected to run for a finite period of time and then exit. As long as the pod finishes without an error, the job is finished and the pod is not restarted. This is different from when we use a `ReplicationController` for long running services that should be restarted anytime they exit.
 
