@@ -1,7 +1,8 @@
 ---
-published: false
 title: Pricing OpenShift as an Internal Service Provider
 layout: post
+date:   2017-04-19
+categories: openshift serviceprovider
 ---
 When a company deploys OpenShift for internal consumption, a common question is
 how to best charge internal users for their use of the platform. Chargeback 
