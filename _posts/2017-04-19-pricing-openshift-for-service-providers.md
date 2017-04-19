@@ -121,8 +121,8 @@ Cons:
 ### Recommendation
 
 I personally think charging for resource capacity is the superior choice. The 
-usual objection is that is makes customers pay for resources more
-for resources that they are not "using". But this is obviously false, since 
+usual objection is that it makes customers pay more for resources that they 
+are not "using". But this is obviously false, since 
 with both methods we are always charging only `Total Annual Cost`!
 
 Charging by resource capacity transfers more of the cost from customers with
@@ -138,10 +138,10 @@ planned for. And the predictability is good for the service provider too.
 
 Over time there are several factors that should come together to change prices. First, it will become more clear how to estimate resource usage or requested capacity with actual usage data. Second, as more customers are onboarded and deployments grow, the infrastructure and operational overhead should be a smaller proportion of total costs. And finally, new hardware, processes, and automation should work together to lower the per unit costs for the platform.
 
-Periodically revisit your pricing to make sure it accurately reflects costs. Charging too little will make it harder to justify the platform's continued operation, but charging too much will slow platform growth and lead to inefficeincy in how the business uses technology! Contstantly work to improve inefficiency, improve value, and drop costs and prices for your customers.
+Periodically revisit your pricing to make sure it accurately reflects costs. Charging too little will make it harder to justify the platform's continued operation, but charging too much will slow platform growth and lead to inefficiency in how the business uses technology! Constantly work to improve efficiency, improve value, and drop costs and prices for your customers.
 
 #### Footnotes
 
 <b id="f1">1</b> This isn't *completely* accurate, because higher prices will 
-incentivize less use of the platform, and on the flipside lower prices more 
+incentivize less use of the platform, and on the flipside lower prices incentivize more 
 use. But for a first order approximation, this is close enough. #thingsphysicistssay [↩](#a1)
