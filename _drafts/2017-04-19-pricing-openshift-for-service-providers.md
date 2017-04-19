@@ -55,6 +55,8 @@ There are a couple different ways we could approach this:
 
 ### 1. Charge for Resource Usage
 
+![Usage Charts]({{site.baseurl}}/images/usage_charts.png)
+
 Here we track the amount of CPU, memory, network, and storage usage per period 
 of time. So a customer that runs a pod that fully consumes a CPU for one hour 
 would get charged for 1 CPU\*hour. In most of my conversations with customers,
@@ -63,8 +65,8 @@ where you pay per GB of data used.
 
 To calculate the price per CPU\*hour, we have to estimate the average resource usage
 each year (ie `Total CPU*hours Consumed`), then divide `Total Annual Cost` by that.
-This means that if customer A uses 100 CPU\*hours and all customers together use 
-10000 CPU\*hours, then customer A will pay 1% of the `Total Annual Cost` of the 
+This means that if customer A uses 100 CPU\*hours and we estimate all customers together will use 
+10000 CPU\*hours this year, then customer A will pay 1% of the `Total Annual Cost` of the 
 platform.
 
 Pros:
@@ -86,6 +88,8 @@ Cons:
 
 ### 2. Charge for Resource Capacity
 
+![Capacity Charts]({{site.baseurl}}/images/capacity_charts.png)
+
 Here each customer picks a plan that gives them access to a certain amount of 
 resources. For example, a small customer might request up to 2 CPUs and 4GB of
 memory, while a large customer might request 40 CPUs and 80GB of memory. We 
@@ -97,9 +101,7 @@ space every day or not.
 
 To calculate the price per CPU, we have to estimate the average total requested 
 capacity for the year (ie `Total CPU Capacity`), then divide `Total Annual Cost` by that.
-This means that if customer A gets a 2 CPU plan and all customers together request 
-200 CPUs of capacity, then customer A will pay 1% of the `Total Annual Cost` of the 
-platform.
+This means that if customer A gets a 2 CPU plan and we estimate that all customers together will request 200 CPUs of capacity this year, then customer A will pay 1% of the `Total Annual Cost` of the platform.
 
 Pros:
 
@@ -130,6 +132,12 @@ wildly fluctuating usage requires more capacity to be allocated just in case!
 Best of all, there are no surprises for customers when chargeback happens. 
 Nothing will scare off users more than surprise invoices for 10x what was 
 planned for. And the predictability is good for the service provider too.
+
+## Step 3: Update forecasts and prices periodically
+
+Over time there are several factors that should come together to change prices. First, it will become more clear how to estimate resource usage or requested capacity with actual usage data. Second, as more customers are onboarded and deployments grow, the infrastructure and operational overhead should be a smaller proportion of total costs. And finally, new hardware, processes, and automation should work together to lower the per unit costs for the platform.
+
+Periodically revisit your pricing to make sure it accurately reflects costs. Charging too little will make it harder to justify the platform's continued operation, but charging too much will slow platform growth and lead to inefficeincy in how the business uses technology! Contstantly work to improve inefficiency, improve value, and drop costs and prices for your customers.
 
 #### Footnotes
 
