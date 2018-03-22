@@ -3,6 +3,10 @@ published: true
 title: Waiting for Remote Systems in a Jenkins Pipeline
 categories: jenkins cicd
 ---
+
+**Update:** I've released a Jenkins Plugin that makes this a lot easier, see [this update post](/jenkins/cicd/2017/03/31/waiting-for-remote-systems-in-a-jenkins-pipeline-now-easier.html) for details!
+
+
 When putting together a CICD pipeline, I often want to add stages that depend on a remote system executing a task that could potentially take a long time to complete. Or I want to integrate with a web based system that gives a callback when a task is complete (welcome to the future). 
 
 The remote system could be doing lots of things:
@@ -107,4 +111,3 @@ stage("Wait for Remote System") {
 
 Testing this with curl we would execute `curl -X POST $callback_url`. Since we don't have to muck with authorization or CSRF, that's all that would be required. Any system that supports callbacks would then be easy to integrate with!
 
-**Update:** I've released a Jenkins Plugin that works like this, see [this update post](/jenkins/cicd/2017/03/31/waiting-for-remote-systems-in-a-jenkins-pipeline-now-easier.html) for details!
