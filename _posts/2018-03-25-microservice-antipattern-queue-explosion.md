@@ -75,7 +75,7 @@ In Summary
 ==========
 
 Justify the use of each queue in a microservice architecture based on the 
-indivual needs to the participating microservices, not in an effort to use only
+individual needs to the participating microservices, not in an effort to use only
 one technique for communication across an entire system. The correct blend of 
 asynchronous and synchronous communication increases performance, reduces costs,
 and simplifies operations and troubleshooting.
